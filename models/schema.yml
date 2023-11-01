@@ -2,24 +2,15 @@ version: 2
 
 sources:
   - name: gz_raw_data
-    description : greenweez raw data source
+    description: greenweez raw data source
 
     tables:
       - name: sales
         identifier: raw_gz_sales
         description: sales of greenweez
         tests:
-          - unique:
-              column_name:"(orders_id || '-' || products_id)"
-        columns:
-          - name: date_date 
-            description: the date of purchase
-          - name: orders_id
-            description: foreign key to ship
-          - name: products_id
-            description: foreign key to product
-          - name: revenue
-            description: the amount paid by the customer to buy the product. revenur = quantity * selling_price 
+          - unique: column_name:"(orders_id|| '-' ||pdt_id)"
+        
 
       - name: product
         identifier: raw_gz_product
@@ -48,4 +39,3 @@ sources:
             description: cost of preparing the parcel in the warehouse
           - name: ship_cost
             description: shipping cost paid by Greenweez to the transporter
-
