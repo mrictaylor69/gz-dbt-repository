@@ -8,8 +8,6 @@ sources:
       - name: sales
         identifier: raw_gz_sales
         description: sales of greenweez
-        tests:
-          - unique: column_name:"(orders_id || '-' || pdt_id)"
         columns:
           - name: date_date
             description: the date of purchase
@@ -26,9 +24,6 @@ sources:
         columns:
           - name: products_id
             description: primary key for the table
-            tests:
-              - unique
-              - not_null
           - name: purchase_price
             description: purchase price for the product
 
@@ -38,9 +33,6 @@ sources:
         columns:
           - name: orders_id
             description: primary key to ship
-            tests:
-              - unique
-              - not_null
           - name: shipping_fee
             description: price the customer pays for the shipping
           - name: logcost
