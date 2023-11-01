@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: gz_raw_data 
+  - name: gz_raw_data
     description: greenweez raw data source
 
     tables:
@@ -16,11 +16,10 @@ sources:
           - name: pdt_id
             description: foreign key to product
           - name: revenue
-            description: the amount paid by the customer to buy the product. revenur = quantity * selling_price
-            tests:
-              - unique:
-                column_name : "(pdt_id || '-' || orders_id)"
-              
+            description: the amount paid by the customer to buy the product. revenue = quantity * selling_price
+        tests:
+          - unique:
+              column_name: "(orders_id || '-'|| pdt_id)"
 
       - name: product
         identifier: raw_gz_product
@@ -30,6 +29,8 @@ sources:
             description: primary key for the table
           - name: purchase_price
             description: purchase price for the product
+              
+              
 
       - name: ship
         identifier: raw_gz_ship
