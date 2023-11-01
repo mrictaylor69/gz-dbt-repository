@@ -17,6 +17,10 @@ sources:
             description: foreign key to product
           - name: revenue
             description: the amount paid by the customer to buy the product. revenur = quantity * selling_price
+            tests:
+              - unique:
+                column_name : "(pdt_id || '-' || orders_id)"
+              
 
       - name: product
         identifier: raw_gz_product
